@@ -1,8 +1,17 @@
-interface Todotype {
-  id: string | number
-  task: string
-  idDone: boolean
+interface TodoType {
+    id: string | number;
+    task: string;
+    isDone: boolean;
 }
+
 interface ITodoList {
-  todos: Todotype[]
+    todos: TodoType[];
+    toggleTodo:ToggleFn;
+    deleteTodo: DeleteFn;
 }
+ 
+type AddFn = (text:string) => void;
+
+type ToggleFn = (item:TodoType)=> void;
+
+type DeleteFn = (id: string | number) => void;
